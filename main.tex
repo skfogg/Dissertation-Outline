@@ -175,19 +175,41 @@ advection- transfer of heat along with the transfer of mass
 
 When talking about heat, we don't need to talk about "dispersion" - that term should only be used for mass transfer of a substance. Diffusion is the correct term of heat transfer.
 
+------------------------------------------------------------------
+
+outline
+\begin{itemize}
+    \item Many heat-budget stream temperature models use a version of Fourier's law to calculate the heat transfer between the channel and the streambed from the temperature gradient between the two.
+    \item For this method to be accurate, a reasonable estimate of mean streambed temperature is necessary. Because streambed temperatures can be highly heterogeneous, an accurate mean temperature is difficult or impossible to obtain. Therefore, the Fourier method can accurately calculate heat transfer for fairly homogeneous stream-beds, otherwise it is highly site-specific, and may not be an accurate estimate for channel-streambed heat exchange at the reach scale.   
+    \item In streams with high hyporheic exchange, the temperature heterogeneity within the hyporheic zone is vast, thus estimating heat transfer between the channel and streambed with a Fourier's equation is likely highly inaccurate. Additionally, Fourier's equation simulates diffusion (conduction) of heat but the primary heat transfer among the stream channel and hyporheic zone is advection.
+    \item Therefore, simulating advection of heat along with the bulk movement of water through a hyporheic zone and back to the channel may be a more accurate representation of heat exchange with the channel and hyporheic zone than the diffusion-only Fourier model.
+\end{itemize}
+
+
+
+Heat exchange between the stream and stream-bed can be an important part of a stream's energy budget, depending on the stream in question and the time of year. The stream
+
+Most heat-budget stream temperature models calculate heat exchange with the streambed using Fourier's equation of heat transfer, where the heat exchange is based on the thermal gradient between the stream channel temperature and the streambed temperature at a certain (arbitrary) depth. The streambed temperature gradient is typically measured from temperature loggers installed at various depths beneath the channel. However, stream-bed temperatures can be extremely heterogeneous in space, thus finding an estimate of streambed temperature which accurately represents the heat transfer between the stream channel and streambed.
+
+In streams which overly coarse-grained alluvium, much of the streambed temperature heterogeneity can be attributed to vast amounts of hyporheic exchange. 
+
+
 In streams overlying expansive, coarse-grained alluvial aquifers, hyporheic exchange can potentially influence the temperature dynamics in the stream channel. The extent of this influence is determined by the gross water exchange with the hyporheic zone and the heat fluxes within the hyporheic zone. The heat transfer processes occurring within the hyporheic zone include advection -- heat transferred along with the bulk movement of the water,  and diffusion -- the spreading of heat caused by a concentration gradient. 
 
-In these stream systems, with high rates of hyporheic exchange, there is a tremendous amount of bulk water movement between the stream channel and the hyporheic zone,
+In streams with high hyporheic exchange rates, there is tremendous bulk water movement between the stream channel and the hyporheic zone, thus advection of heat is likely the dominant heat transfer process in the hyporheic zone in these streams. Diffusion of heat should be minimal compared to the amount of heat movement associated with the bulk movement of water. However, in streams which have little hyporheic exchange, heat diffusion is likely the dominant heat transfer process. 
+
+simplified model which can be scaled to the hyporheic zone and stream reach of interest. 
+
 
 \subsection*{Question}
-At what scales are advection and dispersion of heat in the hyporheic zone important for simulating heat exchange in the hyporheic zone and between the hyporheic zone and channel?
+At what time scales are advection and diffusion of heat in the hyporheic zone important for simulating temperature in the hyporheic zone and heat exchange between the hyporheic zone and channel?
 
 How do the processes of advection and dispersion of heat, components of hyporheic heat exchange, scale from reach to whole stream? And how can a simplified perspective on advective and dispersive heat exchanges  be represented based on a power-law hyporheic residence time distribution?
 
 %How do we represent advection and dispersion in a quasi-1D setting in order to simulate the overall effect of hyporheic heat transfer and storage on whole channel temperature regimes?
 
 \subsection*{Hypothesis}
-Advective transport of heat, rather than dispersion, is the dominant process of heat exchange between the stream channel and hyporheic zone in expansive, coarse-grained alluvial aquifers and that representation of advection alone (along with numerical dispersion) in a heat exchange model is able to simulate the effects of hyporheic exchange on stream channel temperatures.
+Advective transport of heat, rather than diffusion, is the dominant process of heat exchange between the stream channel and hyporheic zone in expansive, coarse-grained alluvial aquifers and that representation of advection alone (along with numerical dispersion) in a heat exchange model is able to simulate the effects of hyporheic exchange on stream channel temperatures.
 
 \subsection*{Prediction}
 If the dominance of advective transport processes is sufficient, we predict that heat budgets that ignore dispersive heat transport will provide accurate estimates of the effects of hyporheic heat exchange on stream channel temperature dynamics. Conversely, if dispersive heat transport represents a sufficiently important mechanism of heat transfer, we expect inaccurate estimates of stream temperature dynamics that will require either modification to parameters in our advection-only TempTool model or adjustment in the underlying model assumptions and structure to incorporate dispersive heat exchanges.
